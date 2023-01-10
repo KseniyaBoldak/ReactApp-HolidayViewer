@@ -1,0 +1,42 @@
+.countryImg {
+    width: 3vw;
+    height: 2vw;
+
+}
+
+.countryButton {
+    display: flex;
+    flex-direction: column;
+}
+
+.countries {
+    font-family: 'Amatic SC', cursive;
+    font-size: 4vmin;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 50%;
+}
+
+.searchLine {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchLine input {
+    width: 40%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 0;
+    margin: 1%;
+    height: 5vw;
+    font-size: 4vmin;
+    font-family: 'Amatic SC', cursive;
+}
+
+.searchLine h2 {
+    font-size: 4vmin;
+}

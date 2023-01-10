@@ -1,0 +1,24 @@
+.quoteImg {
+    width: 50vw;
+    height: 20vw;
+    background-image: url(../../../public/arrow.bmp);
+    background-position: center;
+    background-size: cover;
+
+}
+
+q {
+    font-family: 'Amatic SC', cursive;
+    font-size: 5vmin;
+}
+
+.quoteContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2% 0 2% 0;
+}
+
+span {
+    color: orange;
+}
