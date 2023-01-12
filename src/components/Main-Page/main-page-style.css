@@ -103,3 +103,9 @@ footer div {
     justify-content: space-around;
     align-items: center;
 }
+.country-cities {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}

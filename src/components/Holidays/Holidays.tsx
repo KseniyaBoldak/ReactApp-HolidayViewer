@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Cities from "../Cities/Cities";
 import './holidays-style.css';
 
 const Holidays = ({ countryCode, countryName }: { countryCode: any, countryName: any }) => {
