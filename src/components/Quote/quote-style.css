@@ -1,7 +1,7 @@
 .quoteImg {
     width: 50vw;
     height: 20vw;
-    background-image: url(../../../public/arrow.bmp);
+    background-image: url(../../../public/arrow.webp);
     background-position: center;
     background-size: cover;
 

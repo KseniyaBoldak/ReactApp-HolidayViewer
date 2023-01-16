@@ -23,7 +23,7 @@ const Holidays = ({ countryCode, countryName }: { countryCode: any, countryName:
 
     return (
         <article className="selected-holidays">
-            <div className="selected-country">Country: {countryName}</div>
+            <div className="selected-country">Public holidays in: {countryName}</div>
             <div className="title">
                 <div>Date</div>
                 <div>Holiday</div>

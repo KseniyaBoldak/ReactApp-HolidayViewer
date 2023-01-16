@@ -17,7 +17,7 @@ nav {
     margin: 0 auto;
     width: 100%;
     height: 100vh;
-    background-image: url(../../../public/mainbc.jpg);
+    background-image: url(../../../public/mainbc.webp);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -87,6 +87,7 @@ li:hover {
 .country-holiday {
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
  footer {
     width: 100%;

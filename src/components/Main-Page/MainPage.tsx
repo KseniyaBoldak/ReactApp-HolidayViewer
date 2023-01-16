@@ -58,8 +58,8 @@ const MainPage = () => {
                     <Countries getCountryCode={getCountryCode} getCountryName={getCountryName} />
                     <article className="country-cities">
                         <Holidays countryCode={countryCode} countryName={countryName} />
-                        <Cities countryCode={countryCode} countryName={countryName}/>
                     </article>
+                    <Cities countryName={countryName}/>
                 </section>
                 :
                 <LogInForm />
