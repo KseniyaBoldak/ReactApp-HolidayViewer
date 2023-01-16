@@ -1,16 +1,19 @@
 {
   "files": {
-    "main.css": "/ReactApp-HolidayViewer/static/css/main.c72c6b70.css",
-    "main.js": "/ReactApp-HolidayViewer/static/js/main.092d1ec8.js",
-    "static/media/arrow.bmp": "/ReactApp-HolidayViewer/static/media/arrow.4d3b9254c6e4f2fd2e00.bmp",
-    "static/media/loginbc.jpg": "/ReactApp-HolidayViewer/static/media/loginbc.6f4849bf51b4eb483abb.jpg",
-    "static/media/mainbc.jpg": "/ReactApp-HolidayViewer/static/media/mainbc.3c929a5252ba24ef64f5.jpg",
+    "main.css": "/ReactApp-HolidayViewer/static/css/main.bf0c731c.css",
+    "main.js": "/ReactApp-HolidayViewer/static/js/main.7bf64c10.js",
+    "static/media/mainbc.webp": "/ReactApp-HolidayViewer/static/media/mainbc.ecfc71abb94f0792e82d.webp",
+    "static/media/loginbc.webp": "/ReactApp-HolidayViewer/static/media/loginbc.2ec5859bc9c47f636753.webp",
+    "static/media/city.png": "/ReactApp-HolidayViewer/static/media/city.558ff6ab6406c8224489.png",
+    "static/media/arrow.webp": "/ReactApp-HolidayViewer/static/media/arrow.a0f42fdcaf55f1f523de.webp",
+    "static/media/religion.png": "/ReactApp-HolidayViewer/static/media/religion.dad3c10d50cf0b367d37.png",
+    "static/media/city-icon.png": "/ReactApp-HolidayViewer/static/media/city-icon.3f41b2a43aaa90cbc3fc.png",
     "index.html": "/ReactApp-HolidayViewer/index.html",
-    "main.c72c6b70.css.map": "/ReactApp-HolidayViewer/static/css/main.c72c6b70.css.map",
-    "main.092d1ec8.js.map": "/ReactApp-HolidayViewer/static/js/main.092d1ec8.js.map"
+    "main.bf0c731c.css.map": "/ReactApp-HolidayViewer/static/css/main.bf0c731c.css.map",
+    "main.7bf64c10.js.map": "/ReactApp-HolidayViewer/static/js/main.7bf64c10.js.map"
   },
   "entrypoints": [
-    "static/css/main.c72c6b70.css",
-    "static/js/main.092d1ec8.js"
+    "static/css/main.bf0c731c.css",
+    "static/js/main.7bf64c10.js"
   ]
 }
