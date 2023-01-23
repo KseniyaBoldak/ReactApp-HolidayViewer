@@ -1,19 +1,28 @@
 {
   "files": {
-    "main.css": "/ReactApp-HolidayViewer/static/css/main.bf0c731c.css",
-    "main.js": "/ReactApp-HolidayViewer/static/js/main.7bf64c10.js",
+    "main.css": "/ReactApp-HolidayViewer/static/css/main.12bd2cc0.css",
+    "main.js": "/ReactApp-HolidayViewer/static/js/main.01d67237.js",
+    "static/media/processing.gif": "/ReactApp-HolidayViewer/static/media/processing.415a12e4058affff4a72.gif",
     "static/media/mainbc.webp": "/ReactApp-HolidayViewer/static/media/mainbc.ecfc71abb94f0792e82d.webp",
     "static/media/loginbc.webp": "/ReactApp-HolidayViewer/static/media/loginbc.2ec5859bc9c47f636753.webp",
     "static/media/city.png": "/ReactApp-HolidayViewer/static/media/city.558ff6ab6406c8224489.png",
+    "static/media/mountain.png": "/ReactApp-HolidayViewer/static/media/mountain.8d44ab18d143f43f6eae.png",
     "static/media/arrow.webp": "/ReactApp-HolidayViewer/static/media/arrow.a0f42fdcaf55f1f523de.webp",
+    "static/media/map.png": "/ReactApp-HolidayViewer/static/media/map.cedd13c072c14f941c02.png",
+    "static/media/search.png": "/ReactApp-HolidayViewer/static/media/search.75f9f58d01d57e083a86.png",
+    "static/media/entertainment.png": "/ReactApp-HolidayViewer/static/media/entertainment.2d54e97545a6504a3401.png",
     "static/media/religion.png": "/ReactApp-HolidayViewer/static/media/religion.dad3c10d50cf0b367d37.png",
+    "static/media/history.png": "/ReactApp-HolidayViewer/static/media/history.68f68691a00712866601.png",
     "static/media/city-icon.png": "/ReactApp-HolidayViewer/static/media/city-icon.3f41b2a43aaa90cbc3fc.png",
+    "static/media/fountain.png": "/ReactApp-HolidayViewer/static/media/fountain.967ed1b8e187b47a013b.png",
+    "static/media/theatre.png": "/ReactApp-HolidayViewer/static/media/theatre.264d641ce61daf403069.png",
+    "static/media/museum.png": "/ReactApp-HolidayViewer/static/media/museum.15f34cf48c741a521438.png",
     "index.html": "/ReactApp-HolidayViewer/index.html",
-    "main.bf0c731c.css.map": "/ReactApp-HolidayViewer/static/css/main.bf0c731c.css.map",
-    "main.7bf64c10.js.map": "/ReactApp-HolidayViewer/static/js/main.7bf64c10.js.map"
+    "main.12bd2cc0.css.map": "/ReactApp-HolidayViewer/static/css/main.12bd2cc0.css.map",
+    "main.01d67237.js.map": "/ReactApp-HolidayViewer/static/js/main.01d67237.js.map"
   },
   "entrypoints": [
-    "static/css/main.bf0c731c.css",
-    "static/js/main.7bf64c10.js"
+    "static/css/main.12bd2cc0.css",
+    "static/js/main.01d67237.js"
   ]
 }
