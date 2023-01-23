@@ -58,15 +58,22 @@ const CitySights = ({ geo }: { geo: any }) => {
 
     return (
         <>
-            <p>Sights that might interest you: {geo.name}</p>
-            {sights.map(sight => {
+            <h3 className="title-sights">Sights that might interest you in: {geo.name}</h3>
+            <div className="sights-wrap">
+                {sights.map(sight => {
                 if (sight.name) return <div
                     key={sight.id}
                     className="sights">
+                    <div className="search-wrap">
+                        <div onClick={() => { getSightsInfo(sight.id) }}
+                            className="search"/>
+                    </div>
                     {sight.name} 
-                    <button onClick={() => { getSightsInfo(sight.id) }}>See more</button>
                 </div>
+                    
             })}
+            </div>
+            
             <Modal
                 visible={isModal}
                 onClose={onClose}

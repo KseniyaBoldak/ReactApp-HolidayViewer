@@ -21,11 +21,16 @@ const Modal = ({ visible = false, onClose, info }: ModalProps) => {
                     </span>
                 </div>
                 <div className='modal-body'>
-                    <p>{info.text ? info.text : 'Unfortunately, there is no information about this sight.'}</p>
-                    {info.address ? <p>Address: {info.address} </p>: null}
-                    {info.kind ? <p>Kinds: {info.kind.replaceAll(',', ', ')}</p> : null}
-                    <Icon kind={info.kind}/>
-                    <a href={info.map}>View on map</a>
+                    <div className='modal-info'>
+                        <p>{info.text ? info.text : 'Unfortunately, there is no information about this sight.'}</p>
+                        {info.address ? <p>Address: {info.address} </p>: null}
+                        {info.kind ? <p>Kinds: {info.kind.replaceAll(',', ', ')}</p> : null}
+                    </div>
+                    <div className='modal-icon'>
+                        <Icon kind={info.kind}/>
+                        <a href={info.map}>View on map</a>
+                    </div>
+                    
                 </div>
             </div>
         </div>

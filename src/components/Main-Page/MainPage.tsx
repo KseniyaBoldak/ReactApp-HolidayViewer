@@ -1,6 +1,5 @@
 import Countries from '../Countries/Countries';
 import './main-page-style.css';
-import ImageSearchIcon from '@mui/icons-material/ImageSearch';
 import LogInForm from '../LoginForm/LogInForm';
 import Context from '../context/context';
 import { useContext, useEffect, useState } from 'react';
@@ -9,6 +8,7 @@ import Quote from '../Quote/Quote';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import Cities from '../Cities/Cities';
+
 
 const MainPage = () => {
     const { login, setLogin } = useContext(Context);
@@ -31,16 +31,11 @@ const MainPage = () => {
         <>
             <main className='greeting'>
                 <nav >
-                    <h3> <ImageSearchIcon /> Holiday Viewer</h3>
+                    <h3 className='logo'> <div className='map'></div> <span>Holiday Viewer</span></h3>
                     {login ?
-                        <ul>
-                            <li>Home</li>
-                            <li>Holidays</li>
-                            <li>Countries</li>
-                            <li onClick={logout}>Sign Out</li>
-                        </ul>
+                        <button className='sign-out' onClick={logout}>Sign Out</button>
                         :
-                        <p />}
+                        null}
                 </nav>
                 <header className="moto">
                     <h1>
@@ -66,7 +61,9 @@ const MainPage = () => {
             }
             <footer>
                 <div>
-                    <GitHubIcon/>
+                    <a href="https://github.com/KseniyaBoldak/ReactApp-HolidayViewer">
+                        <GitHubIcon/>
+                    </a>
                     <FacebookIcon/> 
                 </div> 
             </footer>

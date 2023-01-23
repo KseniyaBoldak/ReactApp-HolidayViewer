@@ -54,7 +54,7 @@ const LogInForm = () => {
                     value={loginData.password}
                     onChange={getEmailandLogin}
                 />
-                <button type="submit">
+                <button type="submit" className='login-button'>
                     Sign Up
                 </button>
             </form>

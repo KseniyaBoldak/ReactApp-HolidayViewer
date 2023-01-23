@@ -1,5 +1,16 @@
 .sights {
     border-bottom: 1px solid black;
+    font-family: 'Amatic SC', cursive;
+    font-size: 3vmin;
+    display: flex;
+    width: 25%;
+    align-items: center;
+    margin: 1%;
+}
+.sights-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .city-title {
     font-family: 'East Sea Dokdo', cursive;
@@ -14,12 +25,13 @@ hr {
     margin-top: 2%;
 }
 .city {
-    width: 30%;
+    width: 25%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
     border-right: 1px solid black;
-    margin: 1%;
+    margin: 1%;;
+    padding: 2%;
 }
 .all-cities {
     display: flex;
@@ -34,6 +46,9 @@ hr {
     background-position: center;
     background-size: cover;
 }
+.city-name {
+    text-align: center;
+}
 .icon {
     background-image: url(../../../public/city-icon.png);
     width: 5vw;
@@ -44,4 +59,37 @@ hr {
 button {
     width: 30%;
     margin: 0;
+    background-color: transparent;
+}
+.search-wrap {
+    width: 5vw;
+    height: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search {
+    background-image: url(./search.png);
+    width: 2vw;
+    height: 2vw;
+    background-position: center;
+    background-size: cover
+}
+.search:hover {
+    width: 3vw;
+    height: 3vw;
+}
+.all-city-sights {
+    width: 100%;
+}
+.title-sights {
+    width: 100%;
+    text-align: center;
+    font-family: 'East Sea Dokdo', cursive;
+    font-size: 7vmin;
+}
+.spinner-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }

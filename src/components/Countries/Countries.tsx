@@ -35,6 +35,22 @@ const Countries = ({ getCountryCode, getCountryName }: { getCountryCode: any, ge
         getCountries();
     }, [])
 
+    const PaginationButtons = (): JSX.Element => {
+        let buttons: JSX.Element[] = [];
+        for (let i = 0; i < totalPages; i++) {
+            buttons.push(
+                <button
+                    onClick={() => setPage(i + 1)}
+                    key={i}
+                    className="page"
+                >
+                    {i + 1}
+                </button>
+            )
+        }
+        return <>{buttons}</>
+    }
+
     const searchedCountry = useMemo(() => {
         if (search) {
             return country.filter((field: any) => field.name.toLowerCase().includes(search.toLowerCase()));
@@ -84,16 +100,7 @@ const Countries = ({ getCountryCode, getCountryName }: { getCountryCode: any, ge
                     <button onClick={prevPage} className="page">
                         &larr;
                     </button>
-                    {/* @ts-ignore */}
-                    {[...Array(totalPages).keys()].map((el) => (
-                        <button
-                            onClick={() => setPage(el + 1)}
-                            key={el}
-                            className="page"
-                        >
-                            {el + 1}
-                        </button>
-                    ))}
+                      <PaginationButtons/>
                     <button onClick={nextPage} className="page">
                         &rarr;
                     </button>

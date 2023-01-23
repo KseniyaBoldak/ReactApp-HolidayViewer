@@ -32,16 +32,17 @@ input {
     background-color: rgba(255, 255, 255, 0.671);
 }
 
-button {
+.login-button {
     width: 70%;
     margin: 0 auto;
     border: none;
     font-family: 'Amatic SC', cursive;
     font-size: 3.5vmin;
     margin-top: 8%;
+    background-color: rgba(255, 255, 255, 0.671);
 }
 
-button:hover {
+.login-button:hover {
     color: orange;
     box-shadow: 0px 0px 10px 2px white;
 }

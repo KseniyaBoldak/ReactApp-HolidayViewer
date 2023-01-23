@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import CitySights from "./CitySights";
 import TablePagination from '@mui/material/TablePagination';
 import usePagination from "../hooks/usePagination";
+import Spinner from "../Spinner/Spinner";
 export interface IGeo {
     lat: string,
     lon: string
@@ -10,11 +11,11 @@ export interface IGeo {
 
 const Cities = ({ countryName }: { countryName: any }) => {
     const [countries, setCountries] = useState<any>([]);
+    const [currentCountryCities, setCurrentCountryCities] = useState<any[]>();
     const apiKey = process.env.REACT_APP_API_KEY; 
 
     const getAllCountries = async () => {
         try {
-            if (!countryName) return;
             const responseData = await axios.get('https://countriesnow.space/api/v0.1/countries/');
             const allCounties = responseData.data;
             if (responseData.status == 200) {
@@ -28,6 +29,7 @@ const Cities = ({ countryName }: { countryName: any }) => {
     }
     useEffect(() => {
         getAllCountries();
+        setCurrentCountryCities(countries.find((country: any) => countryName == country.country)?.cities);
     }, [countryName]);
 
     const [geo, setGeo] = useState<IGeo>();
@@ -44,25 +46,27 @@ const Cities = ({ countryName }: { countryName: any }) => {
                     <hr />
                     <h2 className="city-title">Cities of {countryName}</h2>
                     <div className="city-bc" />
-                    {countries
-                        .map((country: any) => {
-                            if (countryName == country.country) {
-                                return <>
-                                    {country.cities.map((city: string) => {
+                    {currentCountryCities?.length ? currentCountryCities.map((city: string) => {
                                         return <div className="city">
                                             <div className="icon" />
-                                            <p>{city}</p>
-                                            <button
-                                                key={city}
-                                                onClick={() => getLocation(city)}>
-                                                See sights &rarr;
-                                            </button>
+                                            <p className="city-name">{city}</p>
+                                            <div className="search-wrap">
+                                                <div
+                                                    key={city}
+                                                    onClick={() => getLocation(city)}
+                                                    className="search">
+                                                </div>
+                                            </div>
+                                            
                                         </div>
-                                    })}
-                                </>
-                            }
-                        })}
-                    <div>
+                                    })
+                                :
+                                <div className="spinner-wrap">
+                                     <Spinner/>
+                                </div>
+                               
+                                }
+                    <div className="all-city-sights">
                         {geo?.lat && <CitySights geo={geo} />}
                     </div>
                 </div>
