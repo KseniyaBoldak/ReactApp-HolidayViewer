@@ -1,0 +1,80 @@
+.verification {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+form {
+  margin: 3% 0 0 0;
+  width: 30%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  padding: 4%;
+  font-family: 'Amatic SC', cursive;
+  font-size: 5vmin;
+  text-align: center;
+  background-image: url(../../../public/loginbc.webp);
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0px 0px 26px 6px rgba(34, 60, 80, 0.2);
+}
+
+input {
+  outline: none;
+  border: none;
+  font-size: 3vmin;
+  font-family: 'Amatic SC', cursive;
+  text-align: center;
+  padding: 2%;
+  background-color: rgba(255, 255, 255, 0.671);
+}
+
+.login-button {
+  width: 70%;
+  margin: 0 auto;
+  border: none;
+  font-family: 'Amatic SC', cursive;
+  font-size: 3.5vmin;
+  margin-top: 8%;
+  background-color: rgba(255, 255, 255, 0.671);
+}
+
+.login-button:hover {
+  color: orange;
+  box-shadow: 0px 0px 10px 2px white;
+}
+
+label {
+  font-size: 3vmin;
+  text-align: left;
+  margin: 2% 0 2% 0;
+}
+
+.tips {
+  font-family: 'Amatic SC', cursive;
+  text-align: center;
+  width: 45%;
+}
+
+.tips h2 {
+  font-family: 'East Sea Dokdo', cursive;
+  font-size: 7vmin;
+  text-align: center;
+  margin: 3% 0 0 0;
+}
+
+.tips span {
+  background-color: orange;
+  border-radius: 50%;
+  font-size: 7vmin;
+  padding: 0 2% 0 2%;
+  color: black;
+}
+
+.tips p {
+  font-size: 5vmin;
+  margin: 0;
+  padding: 3%;
+}

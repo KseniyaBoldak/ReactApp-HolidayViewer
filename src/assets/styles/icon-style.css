@@ -1,0 +1,8 @@
+.icon-kinds {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 20vw;
+  height: 20vw;
+  background-image: url(../icons/religion.png);
+}
