@@ -1,4 +1,3 @@
 import axios from 'axios'
-export default axios.create({
-  baseURL: 'https://fakestoreapi.com',
-})
+import Context from '../common/context/context'
+import { useContext, FormEvent, useState } from 'react'

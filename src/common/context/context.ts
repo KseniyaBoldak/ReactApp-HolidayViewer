@@ -5,6 +5,6 @@ const Context = createContext({} as IAuth)
 export default Context
 
 interface IAuth {
-  login: boolean
-  setLogin: Dispatch<SetStateAction<boolean>>
+    login: boolean
+    setLogin: Dispatch<SetStateAction<boolean>>
 }
