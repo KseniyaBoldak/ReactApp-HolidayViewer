@@ -1,0 +1,12 @@
+.advices {
+    font-family: 'Amatic SC', cursive;
+    text-align: center;
+    width: 45%;
+}
+.advices__title {
+    font-family: 'East Sea Dokdo', cursive;
+    font-size: 7vmin;
+    font-weight: bold;
+    text-align: center;
+    margin: 3% 0 0 0;
+}

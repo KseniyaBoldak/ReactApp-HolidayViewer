@@ -1,0 +1,37 @@
+body {
+    position: relative;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: transparent;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    color: rgba(0, 0, 0, 0.804);
+}
+h1 {
+    font-family: 'East Sea Dokdo', cursive;
+    font-size: 12vmin;
+    color: white;
+    margin: 0;
+    padding: 0 0 3% 0;
+    text-align: center;
+}
+h1 span {
+    font-size: 14vmin;
+    color: orange;
+    font-family: 'Seymour One', sans-serif;
+}
+.country-holiday {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.country-cities {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}

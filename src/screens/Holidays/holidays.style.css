@@ -1,0 +1,29 @@
+.holidays {
+    width: 90%;
+    font-family: 'Amatic SC', cursive;
+    font-size: 3vmin;
+    margin-top: 6%;
+}
+.holidays__country {
+    text-align: center;
+    font-size: 4vmin;
+}
+.holidays__title {
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+}
+.holidays__title__date,
+.holidays__title__name {
+    text-align: center;
+    width: 50%;
+}
+
+.holidays__content {
+    display: flex;
+    justify-content: space-around;
+}
+.holidays__content__date:first-child,
+.holidays__content__name:last-child {
+    width: 50%;
+}

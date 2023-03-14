@@ -1,0 +1,31 @@
+.countries {
+    font-family: 'Amatic SC', cursive;
+    font-size: 4vmin;
+    width: 50%;
+}
+.countries__searchLine {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.countries__searchLine__input {
+    width: 40%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 0;
+    margin: 1%;
+    height: 5vw;
+    font-size: 4vmin;
+    font-family: 'Amatic SC', cursive;
+}
+.countries__searchLine__name {
+    font-size: 4vmin;
+}
+.countries__searchedCountry {
+    height: 60vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}

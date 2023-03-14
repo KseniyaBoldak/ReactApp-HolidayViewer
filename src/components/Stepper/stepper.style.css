@@ -1,0 +1,12 @@
+.stepper__number {
+    background-color: orange;
+    border-radius: 50%;
+    font-size: 7vmin;
+    padding: 0 2% 0 2%;
+    color: black;
+}
+.stepper__text {
+    font-size: 5vmin;
+    margin: 0;
+    padding: 3%;
+}

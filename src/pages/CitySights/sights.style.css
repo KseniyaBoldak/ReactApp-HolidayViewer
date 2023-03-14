@@ -1,0 +1,14 @@
+.sights {
+    width: 100%;
+}
+.sights__title {
+    width: 100%;
+    text-align: center;
+    font-family: 'East Sea Dokdo', cursive;
+    font-size: 7vmin;
+}
+.sights__wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

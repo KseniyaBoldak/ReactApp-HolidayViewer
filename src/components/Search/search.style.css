@@ -1,0 +1,18 @@
+.search {
+    width: 5vw;
+    height: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search__img {
+    background-image: url(../../assets/icons/search.png);
+    width: 2vw;
+    height: 2vw;
+    background-position: center;
+    background-size: cover;
+}
+.search__img:hover {
+    width: 3vw;
+    height: 3vw;
+}
