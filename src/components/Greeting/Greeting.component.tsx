@@ -1,29 +1,30 @@
-import { useContext } from 'react'
-import Context from '../../common/context/context'
+import { useAuthContext } from '../../common/context/Auth.Context'
 import './greeting.style.css'
 
 export type GreetingProps = {
     logout?: () => void
 }
 
-const Greeting = (props: GreetingProps) => {
-    const { login } = useContext(Context)
+export default function Greeting(props: GreetingProps) {
+    const authOptions = useAuthContext()
+    const { logout, ...otherProps } = props
+
     return (
-        <main className="greeting">
+        <main className="greeting" {...otherProps}>
             <nav>
                 <h3 className="greeting__logo">
                     {' '}
                     <div className="greeting__icon"></div>{' '}
                     <span>Holiday Viewer</span>
                 </h3>
-                {login ? (
+                {authOptions?.login && (
                     <button
                         className="greeting__button-sign-out"
-                        onClick={props.logout}
+                        onClick={logout}
                     >
                         Sign Out
                     </button>
-                ) : null}
+                )}
             </nav>
             <header className="greeting__moto">
                 <h1>
@@ -37,5 +38,3 @@ const Greeting = (props: GreetingProps) => {
         </main>
     )
 }
-Greeting.displayName = 'Greeting'
-export default Greeting

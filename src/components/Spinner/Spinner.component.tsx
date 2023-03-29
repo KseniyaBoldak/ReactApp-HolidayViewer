@@ -1,11 +1,9 @@
 import './spinner.style.css'
 
-const Spinner = () => {
+export default function Spinner() {
     return (
         <div className="spinner">
             <div className="spinner__gif"></div>
         </div>
     )
 }
-Spinner.displayName = 'Spinner'
-export default Spinner

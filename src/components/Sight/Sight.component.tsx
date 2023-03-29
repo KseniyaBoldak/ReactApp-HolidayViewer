@@ -1,25 +1,26 @@
+import { useCallback } from 'react'
 import './sight.style.css'
 
 export type SightProps = {
     id?: string
-    name?: string
-    getInfo?: (id: string) => Promise<void>
+    value?: string
+    getInfo?: (id: string) => void
 }
 
-const Sight = (props: SightProps) => {
+export default function Sight(props: SightProps) {
+    const { id, value, getInfo, ...otherProps } = props
+
+    const onClick = useCallback(() => {
+        if (!id || !getInfo) return null
+        getInfo(id)
+    }, [getInfo, id])
+
     return (
-        <div key={props.id} className="sight">
+        <div key={id} className="sight" {...otherProps}>
             <div className="search-wrap">
-                <div
-                    onClick={() => {
-                        props.getInfo(props.id)
-                    }}
-                    className="search"
-                />
+                <div onClick={onClick} className="search" />
             </div>
-            {props.name}
+            {value}
         </div>
     )
 }
-Sight.displayName = 'Sight'
-export default Sight

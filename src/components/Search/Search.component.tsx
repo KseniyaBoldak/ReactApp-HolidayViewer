@@ -2,19 +2,18 @@ import './search.style.css'
 
 export type SearchProps = {
     value?: string
-    onSearchClick?: (value: string) => Promise<void>
+    onClick?: (value: string) => void
 }
 
-const Search = (props: SearchProps) => {
+export default function SearchIcon(props: SearchProps) {
+    const { value, onClick } = props
+
     return (
         <div className="search">
             <div
-                key={props.value}
-                onClick={() => props.onSearchClick(props.value)}
+                onClick={() => onClick?.(value ?? '')}
                 className="search__img"
             ></div>
         </div>
     )
 }
-Search.displayName = 'Search'
-export default Search

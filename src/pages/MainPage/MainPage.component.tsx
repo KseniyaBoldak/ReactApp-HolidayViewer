@@ -1,36 +1,39 @@
-import Quote from '../../components/Quote/Quote.component'
-import Countries from '../Countries/Countries.component'
-import Holidays from '../../screens/Holidays/Holidays.component'
-import Cities from '../Cities/Cities.component'
-import Verification from '../Verification/Verification.component'
+import Quote from '../../components/Quote'
+import Countries from '../Countries'
+import Holidays from '../../screens/Holidays'
+import Cities from '../Cities'
+import Verification from '../Verification'
 import Footer from '../../components/Footer/Footer.component'
-import Greeting from '../../components/Greeting/Greeting.component'
-import Context from '../../common/context/context'
-import { useContext, useEffect, useState } from 'react'
+import Greeting from '../../components/Greeting'
+import { useAuthContext } from '../../common/context/Auth.Context'
+import { useEffect, useState } from 'react'
 import './mainPage.style.css'
 
 const MainPage = () => {
-    const { login, setLogin } = useContext(Context)
+    const authOptions = useAuthContext()
     const [countryCode, getCountryCode] = useState<any>()
     const [countryName, getCountryName] = useState<any>()
 
     useEffect(() => {
         const token = localStorage.getItem('token')
         if (token) {
-            return setLogin(true)
+            return authOptions?.setLogin(true)
         }
-    }, [setLogin])
+    }, [authOptions?.setLogin])
 
     const logout = () => {
         localStorage.clear()
-        setLogin(false)
+        authOptions?.setLogin(false)
     }
 
     return (
         <div className="main-page">
             <Greeting logout={logout} />
-            <Quote />
-            {login ? (
+            <Quote>
+                The <span>journey</span> of a thousand miles begins with a
+                single <span>step</span>.
+            </Quote>
+            {authOptions?.login ? (
                 <section className="country-holiday">
                     <Countries
                         getCountryCode={getCountryCode}

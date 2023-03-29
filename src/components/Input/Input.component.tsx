@@ -1,19 +1,21 @@
 import './input.style.css'
 
-const Input = ({
-    value,
-    label,
-    onChange,
-}: {
-    value: string
-    label: string
-    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
-}) => {
+export type InputProps = {
+    value?: string
+    label?: string
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+}
+
+export default function Input(props: InputProps) {
+    const { value, label, onChange, ...otherProps } = props
     return (
-        <div className="input-content">
-            <label htmlFor={label} className="input__label">
-                {label}
-            </label>
+        <div className="input-content" {...otherProps}>
+            {label && (
+                <label htmlFor={label} className="input__label">
+                    {label}
+                </label>
+            )}
+
             <input
                 className="input-content__input"
                 name={label}
@@ -24,5 +26,3 @@ const Input = ({
         </div>
     )
 }
-Input.displayName = 'Input'
-export default Input

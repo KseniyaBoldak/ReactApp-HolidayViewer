@@ -1,18 +1,16 @@
-import GitHubIcon from '@mui/icons-material/GitHub'
-import FacebookIcon from '@mui/icons-material/Facebook'
 import './footer.style.css'
+import ICON_MAP from '../../assets/icons'
+import Icon from '../Icon'
 
-const Footer = () => {
+export default function Footer() {
     return (
         <footer className="footer">
             <div className="footer__content">
                 <a href="https://github.com/KseniyaBoldak/ReactApp-HolidayViewer">
-                    <GitHubIcon />
+                    <Icon.Github />
                 </a>
-                <FacebookIcon />
+                <Icon.Facebook />
             </div>
         </footer>
     )
 }
-Footer.displayName = 'Footer'
-export default Footer

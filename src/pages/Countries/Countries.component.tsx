@@ -1,19 +1,21 @@
 import { useEffect, useMemo, useState } from 'react'
 import usePagination from '../../common/hooks/usePagination'
-import DatenagerApi from '../../api/Datenager.api'
-import Country from '../../components/Country/Country.component'
-import Pagination from '../../components/Pagination/Pagination.component'
+import Pagination from '../../screens/Pagination'
 import key from 'weak-key'
+import CountriesForHolidaysApi from '../../api/CountriesForHolidays.api'
 import './countries.style.css'
+import Button from '../../components/Button'
+import Input from '../../components/Input'
 
 export type CountriesProps = {
     getCountryCode?: React.Dispatch<any>
     getCountryName?: React.Dispatch<any>
 }
 
-const Countries = (props: CountriesProps) => {
+export default function Countries(props: CountriesProps) {
     const [country, setCountries] = useState<any>([])
     const [search, searchCountry] = useState<string>('')
+    const { getCountryCode, getCountryName, ...otherProps } = props
     const {
         firstContentIndex,
         lastContentIndex,
@@ -27,19 +29,10 @@ const Countries = (props: CountriesProps) => {
         count: country.length,
     })
 
-    const getCountries = async () => {
-        try {
-            const responseData = await DatenagerApi.get(
-                '/api/v3/AvailableCountries'
-            )
-            const countries = responseData.data
-            setCountries(countries)
-        } catch (err) {
-            console.log(err)
-        }
-    }
     useEffect(() => {
-        getCountries()
+        CountriesForHolidaysApi.getCountries()
+            .then(setCountries)
+            .catch((e) => console.log(e))
     }, [])
 
     const searchedCountry = useMemo(() => {
@@ -52,41 +45,36 @@ const Countries = (props: CountriesProps) => {
     }, [search, country])
 
     return (
-        <>
-            <article className="countries">
-                <div className="countries__searchLine">
-                    <h2 className="countries__searchLine__name">
-                        Begin your search with a country:
-                    </h2>
-                    <input
-                        className="countries__searchLine__input"
-                        onChange={(event) => searchCountry(event.target.value)}
-                    />
-                </div>
-                <div className="countries__searchedCountry">
-                    {searchedCountry
-                        .slice(firstContentIndex, lastContentIndex)
-                        .map((field: any) => {
-                            return (
-                                <Country
-                                    field={field}
-                                    getCountryCode={props.getCountryCode}
-                                    getCountryName={props.getCountryName}
-                                    key={key(field)}
-                                />
-                            )
-                        })}
-                </div>
-                <Pagination
-                    nextPage={nextPage}
-                    prevPage={prevPage}
-                    page={page}
-                    totalPages={totalPages}
-                    setPage={setPage}
+        <article className="countries" {...otherProps}>
+            <div className="countries__searchLine">
+                <h2 className="countries__searchLine__name">
+                    Begin your search with a country:
+                </h2>
+                <Input
+                    onChange={(event) => searchCountry(event.target.value)}
                 />
-            </article>
-        </>
+            </div>
+            <div className="countries__searchedCountry">
+                {searchedCountry
+                    .slice(firstContentIndex, lastContentIndex)
+                    .map((field: any) => {
+                        return (
+                            <Button
+                                field={field}
+                                getCountryCode={getCountryCode}
+                                getCountryName={getCountryName}
+                                key={key(field)}
+                            />
+                        )
+                    })}
+            </div>
+            <Pagination
+                nextPage={nextPage}
+                prevPage={prevPage}
+                page={page}
+                totalPages={totalPages}
+                setPage={setPage}
+            />
+        </article>
     )
 }
-Countries.displayName = 'Countries'
-export default Countries

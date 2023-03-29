@@ -1,15 +1,13 @@
+import React from 'react'
 import './quote.style.css'
 
-const Quote = () => {
+export type QuoteProps = React.PropsWithChildren
+
+export default function Quote(props: QuoteProps) {
     return (
         <article className="quoteContainer">
             <div className="quoteImg" />
-            <q>
-                The <span>journey</span> of a thousand miles begins with a
-                single <span>step</span>.
-            </q>
+            <q>{props.children}</q>
         </article>
     )
 }
-Quote.displayName = 'Quote'
-export default Quote

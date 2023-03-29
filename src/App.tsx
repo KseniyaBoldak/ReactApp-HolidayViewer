@@ -1,15 +1,13 @@
 import MainPage from './pages/MainPage/MainPage.component'
-import { useState } from 'react'
-import Context from './common/context/context'
+import AuthContext from './common/context/Auth.Context'
 
 function App() {
-    const [login, setLogin] = useState<boolean>(false)
     return (
-        <Context.Provider value={{ login, setLogin }}>
+        <AuthContext>
             <div className="App">
                 <MainPage />
             </div>
-        </Context.Provider>
+        </AuthContext>
     )
 }
 

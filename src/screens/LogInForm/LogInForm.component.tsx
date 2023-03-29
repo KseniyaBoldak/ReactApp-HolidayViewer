@@ -1,12 +1,9 @@
-import Input from '../../components/Input/Input.component'
-import React, { useState, FormEvent, useContext } from 'react'
-import axios from 'axios'
-import Context from '../../common/context/context'
+import Input from '../../components/Input'
+import React, { useState } from 'react'
+import LogInApi from '../../api/LogIn.api'
 import './login.style.css'
 
-const LogInForm = () => {
-    const { setLogin } = useContext(Context)
-
+export default function LogInForm() {
     const [loginData, setLoginData] = useState<{
         username: string
         password: string
@@ -15,24 +12,9 @@ const LogInForm = () => {
         password: '83r5^_',
     })
 
-    const inputLabels = {
-        nameLabel: 'Username',
-        passwordlabel: 'Password',
-    }
-    const confirmUser = async (event: FormEvent<HTMLFormElement>) => {
-        event.preventDefault()
-        try {
-            const isLoginData = await axios.post(
-                'https://fakestoreapi.com/auth/login',
-                loginData
-            )
-            if (isLoginData.data) {
-                localStorage.setItem('token', isLoginData.data.token)
-                setLogin(true)
-            }
-        } catch (err) {
-            console.log(err)
-        }
+    const labels = {
+        name: 'Username',
+        password: 'Password',
     }
 
     const getEmailandLogin = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -41,16 +23,16 @@ const LogInForm = () => {
     }
 
     return (
-        <form onSubmit={confirmUser} className="login-form">
+        <form onSubmit={LogInApi.confirmUser} className="login-form">
             <p className="login-form__title">Create an account</p>
             <Input
                 value={loginData.username}
-                label={inputLabels.nameLabel}
+                label={labels.name}
                 onChange={getEmailandLogin}
             />
             <Input
                 value={loginData.password}
-                label={inputLabels.passwordlabel}
+                label={labels.password}
                 onChange={getEmailandLogin}
             />
             <button type="submit" className="login-form__button">
@@ -59,5 +41,3 @@ const LogInForm = () => {
         </form>
     )
 }
-LogInForm.displayName = 'LogInForm'
-export default LogInForm

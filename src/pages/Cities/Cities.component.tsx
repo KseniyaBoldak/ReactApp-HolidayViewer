@@ -1,33 +1,32 @@
-import CitySights from '../CitySights/CitySights.component'
+import CitySights from '../CitySights'
 import Spinner from '../../components/Spinner/Spinner.component'
-import City from '../../components/City/City.component'
+import Card from '../../components/Card'
 import { useEffect, useState } from 'react'
-import Countriesnow from '../../api/Countriesnow.api'
-import Opentripmap from '../../api/Opentripmap.api'
+import CityApi from '../../api/City.api'
+import CountriesApi from '../../api/Countries.api'
 import './cities.style.css'
 
-export interface IGeo {
+export type Geo = {
     lat: string
     lon: string
 }
+export type CitiesProps = {
+    countryName?: string
+}
 
-const Cities = ({ countryName }: { countryName: string }) => {
+export default function Cities(props: CitiesProps) {
+    const { countryName, ...otherProps } = props
     const [countries, setCountries] = useState<any>([])
     const [currentCountryCities, setCurrentCountryCities] = useState<any[]>()
-    const apiKey = process.env.REACT_APP_API_KEY
+    const [geo, setGeo] = useState<Geo>()
+    let cities = []
 
     const getAllCountries = async () => {
-        try {
-            const responseData = await Countriesnow.get('/api/v0.1/countries/')
-            const allCounties = responseData.data
-            if (responseData.status == 200) {
-                allCounties.data.map((country: any) => country)
-                setCountries(allCounties.data.map((country: any) => country))
-            }
-        } catch (err) {
-            console.log(err)
-        }
+        CountriesApi.getAll()
+            .then(setCountries)
+            .catch((e) => console.log(e))
     }
+
     useEffect(() => {
         getAllCountries()
         setCurrentCountryCities(
@@ -36,30 +35,26 @@ const Cities = ({ countryName }: { countryName: string }) => {
         )
     }, [countryName])
 
-    const [geo, setGeo] = useState<IGeo>()
-
-    const getLocation = async (city: string) => {
-        const responseData = await Opentripmap.get(
-            `/0.1/en/places/geoname?name=${city}&apikey=${apiKey}`
-        )
-        const geoLoc = responseData.data
-        setGeo(geoLoc)
+    const getCityLocation = async (city: string) => {
+        CityApi.getLocation(city)
+            .then(setGeo)
+            .catch((e) => console.log(e))
     }
+
     if (!countryName) {
         return null
     }
-    let cities = []
 
     if (!currentCountryCities) {
         return null
     } else {
         cities = currentCountryCities.map((value: string) => (
-            <City value={value} getLocation={getLocation} />
+            <Card value={value} key={value} onSearchClick={getCityLocation} />
         ))
     }
 
     return (
-        <div className="cities">
+        <div className="cities" {...otherProps}>
             <hr />
             <h2 className="cities__title">Cities of {countryName}</h2>
             <div className="cities__background" />
@@ -68,5 +63,3 @@ const Cities = ({ countryName }: { countryName: string }) => {
         </div>
     )
 }
-Cities.displayName = 'Cities'
-export default Cities

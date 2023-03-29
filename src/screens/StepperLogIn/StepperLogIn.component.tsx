@@ -1,4 +1,4 @@
-import Stepper from '../../components/Stepper/Stepper.component'
+import Stepper from '../../components/Stepper'
 import key from 'weak-key'
 
 const StepperLogIn = () => {

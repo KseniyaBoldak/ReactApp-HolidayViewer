@@ -1,8 +1,8 @@
-import AdvicesLogIn from '../../screens/AdvicesLogIn/AdvicesLogIn.component'
-import LogInForm from '../../screens/LogInForm/LogInForm.component'
+import AdvicesLogIn from '../../screens/AdvicesLogIn'
+import LogInForm from '../../screens/LogInForm'
 import './verification.style.css'
 
-const Verification = () => {
+export default function Verification() {
     return (
         <article className="verification">
             <AdvicesLogIn />
@@ -10,5 +10,3 @@ const Verification = () => {
         </article>
     )
 }
-Verification.displayName = 'Verification'
-export default Verification

@@ -1,25 +1,23 @@
 import { useState } from 'react'
 
-interface UsePaginationReturn {
-    page: number
-    totalPages: number
-    firstContentIndex: number
-    lastContentIndex: number
-    nextPage: () => void
-    prevPage: () => void
-    setPage: (page: number) => void
-}
-const usePagination = ({
-    contentPerPage,
-    count,
-}: {
+export type UsePaginationProps = {
+    page?: number
+    totalPages?: number
+    firstContentIndex?: number
+    lastContentIndex?: number
     contentPerPage: number
     count: number
-}) => {
+    nextPage?: () => void
+    prevPage?: () => void
+    setPage?: (page: number) => void
+}
+const usePagination = (props: UsePaginationProps) => {
+    const { count, contentPerPage } = props
     const [page, setPage] = useState(1)
     const pageCount = Math.ceil(count / contentPerPage)
     const lastContentIndex = page * contentPerPage
     const firstContentIndex = lastContentIndex - contentPerPage
+
     const changePage = (direction: boolean) => {
         setPage((state) => {
             if (direction) {
@@ -35,6 +33,7 @@ const usePagination = ({
             }
         })
     }
+
     const setPageSAFE = (num: number) => {
         if (num > pageCount) {
             setPage(pageCount)
