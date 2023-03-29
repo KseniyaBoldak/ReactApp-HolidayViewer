@@ -1,0 +1,11 @@
+.button {
+    display: flex;
+    flex-direction: column;
+    font-family: Amatic SC, cursive;
+    color: black;
+    font-size: 3vmin;
+    margin: 1%;
+    border: 1px solid black;
+    width: 12vw;
+    height: 6vw;
+}
