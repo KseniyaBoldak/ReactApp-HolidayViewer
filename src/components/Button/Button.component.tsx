@@ -1,28 +1,24 @@
-import Flag from '../Flag/Flag.component'
 import './button.style.css'
 
 export type ButtonProps = {
-    field?: any
-    getCountryCode?: React.Dispatch<any>
-    getCountryName?: React.Dispatch<any>
+    text?: React.ReactNode
+    children?: React.ReactNode
+    className?: React.ReactNode
+    type?: 'button' | 'submit' | 'reset'
+    onClick?: () => void
 }
 export default function Button(props: ButtonProps) {
-    const { field, getCountryCode, getCountryName, ...otherProps } = props
-
-    if (!getCountryCode || !getCountryName) return null
+    const { text, onClick, children, className, type, ...otherProps } = props
 
     return (
         <button
-            className="button"
-            key={field.countryCode}
-            onClick={() => {
-                getCountryCode(field.countryCode)
-                getCountryName(field.name)
-            }}
+            className={`"button__"${className}`}
+            type={type}
+            onClick={onClick}
             {...otherProps}
         >
-            {field.name}
-            <Flag countryCode={field.countryCode} country={field.name} />
+            {text}
+            {children}
         </button>
     )
 }

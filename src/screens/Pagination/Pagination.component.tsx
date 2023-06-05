@@ -1,15 +1,12 @@
+import usePagination, { PaginationOptions } from './usePagination'
 import './pagination.style.css'
 
-export type PaginationProps = {
-    nextPage?: () => void
-    prevPage?: () => void
-    setPage?: (num: number) => void
-    page?: number
-    totalPages?: number
-}
+export type PaginationProps = PaginationOptions
 
 export default function Pagination(props: PaginationProps) {
-    const { nextPage, prevPage, setPage, page, totalPages } = props
+    const { nextPage, prevPage, page, setPage, totalPages } =
+        usePagination(props)
+
     if (!setPage || !totalPages) return null
 
     const Buttons = (): JSX.Element => {

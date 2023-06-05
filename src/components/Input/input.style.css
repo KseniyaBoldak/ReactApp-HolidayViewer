@@ -1,17 +1,18 @@
-.input-content__input {
+.field__ {
     outline: none;
     border: none;
     font-size: 3vmin;
     font-family: 'Amatic SC', cursive;
     text-align: center;
     padding: 2%;
-    background-color: rgba(255, 255, 255, 0.671);
 }
-.input__label {
-    font-size: 3vmin;
+.field__label {
     text-align: left;
     margin: 2% 0 2% 0;
 }
+.field__input {
+    padding: 2%;
+}
 .--search {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #000000;
 }

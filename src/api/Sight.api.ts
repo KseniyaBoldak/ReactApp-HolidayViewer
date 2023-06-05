@@ -14,15 +14,18 @@ export const getAll = async (geo: any) => {
     )
     const allSights = responseData.data.features
 
-    return allSights.map((sight: any) => {
-        let newSights = {
-            id: sight.properties.xid,
-            name: sight.properties.name,
-            kind: sight.properties.kinds,
-        }
-        return newSights
-    })
+    return allSights
+        .map((sight: any) => {
+            let newSights = {
+                id: sight.properties.xid,
+                name: sight.properties.name,
+                kind: sight.properties.kinds,
+            }
+            return newSights
+        })
+        .filter((sight: any) => sight.name)
 }
+
 export const getInfo = async (id: string) => {
     if (!id) return
 

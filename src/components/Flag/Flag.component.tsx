@@ -6,7 +6,8 @@ export type FlagProps = {
 }
 
 export default function Flag(props: FlagProps) {
-    const code = props.countryCode.toLowerCase()
+    const { country, countryCode } = props
+    const code = countryCode.toLowerCase()
     const imgUrl = `https://flagcdn.com/${code}.svg`
-    return <img src={imgUrl} alt={props.country} className="flag" />
+    return <img src={imgUrl} alt={country} className="flag" />
 }

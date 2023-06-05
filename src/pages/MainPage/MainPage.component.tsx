@@ -2,28 +2,29 @@ import Quote from '../../components/Quote'
 import Countries from '../Countries'
 import Holidays from '../../screens/Holidays'
 import Cities from '../Cities'
-import Verification from '../Verification'
+import Verification from '../../screens/Verification'
 import Footer from '../../components/Footer/Footer.component'
-import Greeting from '../../components/Greeting'
-import { useAuthContext } from '../../common/context/Auth.Context'
+import Greeting from '../../screens/Greeting'
+import { useAuthContext } from '../../context/Auth.Context'
 import { useEffect, useState } from 'react'
 import './mainPage.style.css'
 
-const MainPage = () => {
+export default function MainPage() {
     const authOptions = useAuthContext()
+    const [countries, setCountries] = useState<null | any[]>(null)
     const [countryCode, getCountryCode] = useState<any>()
     const [countryName, getCountryName] = useState<any>()
 
     useEffect(() => {
         const token = localStorage.getItem('token')
         if (token) {
-            return authOptions?.setLogin(true)
+            return authOptions?.login
         }
-    }, [authOptions?.setLogin])
+    }, [authOptions?.isLogin])
 
     const logout = () => {
         localStorage.clear()
-        authOptions?.setLogin(false)
+        authOptions?.logout
     }
 
     return (
@@ -33,11 +34,11 @@ const MainPage = () => {
                 The <span>journey</span> of a thousand miles begins with a
                 single <span>step</span>.
             </Quote>
-            {authOptions?.login ? (
+            {authOptions?.login && (
                 <section className="country-holiday">
                     <Countries
-                        getCountryCode={getCountryCode}
-                        getCountryName={getCountryName}
+                        countries={countries}
+                        onCountryNameChange={getCountryName}
                     />
                     <article className="country-cities">
                         <Holidays
@@ -47,12 +48,11 @@ const MainPage = () => {
                     </article>
                     <Cities countryName={countryName} />
                 </section>
-            ) : (
-                <Verification />
             )}
+
+            {authOptions?.login && <Verification />}
+
             <Footer />
         </div>
     )
 }
-MainPage.displayName = 'MainPage'
-export default MainPage

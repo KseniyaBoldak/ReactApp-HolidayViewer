@@ -1,0 +1,14 @@
+.card-header__ {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card-header__title {
+    text-align: center;
+}
+.card-header__icon {
+    opacity: 0.5;
+}
+.card-header__icon:hover {
+    opacity: 1;
+}

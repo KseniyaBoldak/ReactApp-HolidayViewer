@@ -1,4 +1,4 @@
-import StepperLogIn from '../StepperLogIn/StepperLogIn.component'
+import StepperAction from '../Stepper/Stepper.component'
 import key from 'weak-key'
 import './advices.style.css'
 
@@ -14,7 +14,7 @@ export default function AdvicesLogIn() {
                     {text.text}
                 </p>
             ))}
-            <StepperLogIn />
+            <StepperAction />
         </aside>
     )
 }

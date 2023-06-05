@@ -9,7 +9,7 @@
     font-size: 4vmin;
 }
 .holidays__title {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #000000;
     display: flex;
     justify-content: space-between;
 }

@@ -1,9 +1,12 @@
-import Input from '../../components/Input'
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import LogInApi from '../../api/LogIn.api'
 import './login.style.css'
+import Form from '../../components/Form'
+import Button from '../../components/Button'
 
-export default function LogInForm() {
+export type LogInFormProps = {}
+
+export default function LogInForm(props: LogInFormProps) {
     const [loginData, setLoginData] = useState<{
         username: string
         password: string
@@ -17,27 +20,28 @@ export default function LogInForm() {
         password: 'Password',
     }
 
-    const getEmailandLogin = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const field = event.target.id
-        setLoginData({ ...loginData, [field]: event.target.value })
-    }
+    const onChange = useCallback(
+        (event: React.ChangeEvent<HTMLInputElement>) => {
+            const field = event.target.id
+            setLoginData({ ...loginData, [field]: event.target.value }) // <= вместо AuthContext.login(login, pass)
+        },
+        []
+    )
 
     return (
-        <form onSubmit={LogInApi.confirmUser} className="login-form">
+        <Form onSubmit={LogInApi.confirmUser} className="__login">
             <p className="login-form__title">Create an account</p>
-            <Input
+            <Form.Field
                 value={loginData.username}
                 label={labels.name}
-                onChange={getEmailandLogin}
+                onChange={onChange}
             />
-            <Input
+            <Form.Field
                 value={loginData.password}
                 label={labels.password}
-                onChange={getEmailandLogin}
+                onChange={onChange}
             />
-            <button type="submit" className="login-form__button">
-                Sign Up
-            </button>
-        </form>
+            <Button type="submit" className="__login-form" text="Sign Up" />
+        </Form>
     )
 }

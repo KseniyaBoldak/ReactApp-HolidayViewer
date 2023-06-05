@@ -18,7 +18,9 @@ export default function Holidays(props: HolidaysProps) {
             .catch((e) => console.log(e))
     }, [countryCode])
 
-    if (!holidays) return null
+    if (!holidays) {
+        return null
+    }
 
     return (
         <article className="holidays" {...otherProps}>

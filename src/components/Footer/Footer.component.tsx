@@ -1,15 +1,16 @@
+import { FacebookImage, GithubImage } from '../Image'
 import './footer.style.css'
-import ICON_MAP from '../../assets/icons'
-import Icon from '../Icon'
 
-export default function Footer() {
+export type FooterProps = {}
+
+export default function Footer(props: FooterProps) {
     return (
         <footer className="footer">
             <div className="footer__content">
                 <a href="https://github.com/KseniyaBoldak/ReactApp-HolidayViewer">
-                    <Icon.Github />
+                    <GithubImage />
                 </a>
-                <Icon.Facebook />
+                <FacebookImage />
             </div>
         </footer>
     )
