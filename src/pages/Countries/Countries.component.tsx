@@ -1,18 +1,19 @@
+import Country from './Country/Country.component'
+import usePagination from '../../screens/Pagination/usePagination'
+import Pagination from '../../screens/Pagination'
+import Input from '../../components/Input'
+
+import CountriesForHolidaysApi from '../../api/CountriesForHolidays.api'
 import {
-    SetStateAction,
+    type SetStateAction,
     useCallback,
     useEffect,
     useMemo,
     useState,
 } from 'react'
-import usePagination from '../../screens/Pagination/usePagination'
-import Pagination from '../../screens/Pagination'
-import key from 'weak-key'
-import CountriesForHolidaysApi from '../../api/CountriesForHolidays.api'
-import './countries.style.css'
-import Button from '../../components/Button'
-import Input from '../../components/Input'
-import Flag from '../../components/Flag'
+
+import './Countries.style.css'
+import './Flag.style.css'
 
 export type CountriesProps = {
     getCountryCode?: (value: string) => void
@@ -38,16 +39,19 @@ export default function Countries(props: CountriesProps) {
         count: country.length,
     })
 
-    //initialize countries
+    // initialize countries
     useEffect(() => {
         CountriesForHolidaysApi.getCountries()
             .then(setCountries)
-            .catch((e) => console.log(e))
+            .catch((e) => {
+                console.log(e)
+            })
     }, [])
 
     const updateCountry = useCallback(
-        (event: { target: { value: SetStateAction<string> } }) =>
-            searchCountry(event.target.value),
+        (event: { target: { value: SetStateAction<string> } }) => {
+            searchCountry(event.target.value)
+        },
         []
     )
 
@@ -60,7 +64,7 @@ export default function Countries(props: CountriesProps) {
         return country
     }, [search, country])
 
-    if (!getCountryCode || !getCountryName) return null
+    if (getCountryCode == null || getCountryName == null) return null
 
     return (
         <article className="countries" {...otherProps}>
@@ -76,24 +80,15 @@ export default function Countries(props: CountriesProps) {
             <div className="countries__searchedCountry">
                 {searchedCountry
                     .slice(firstContentIndex, lastContentIndex)
-                    .map((field: any) => {
-                        return (
-                            <Button
-                                onClick={() => {
-                                    getCountryCode(field.countyCode)
-                                    getCountryName(field.name)
-                                }}
-                                text={field}
-                                key={key(field)}
-                                children={
-                                    <Flag
-                                        countryCode={field.countryCode}
-                                        country={field.name}
-                                    />
-                                }
-                            />
-                        )
-                    })}
+                    .map((field: any) => (
+                        <Country
+                            field={field}
+                            onClick={() => {
+                                getCountryCode(field.countyCode)
+                                getCountryName(field.name)
+                            }}
+                        />
+                    ))}
             </div>
             <Pagination
                 contentPerPage={12}

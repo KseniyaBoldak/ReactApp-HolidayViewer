@@ -1,13 +1,9 @@
-import Card from './Card.component'
+export { default } from './Card.component'
+
 export * from './Card.component'
 
-import { CardHeader } from './CardHeader/CardHeader.component'
-export * from './CardHeader/CardHeader.component'
+export * from './CardHeader'
 
-import { CardContent } from './CardContent/CardContent.component'
-export * from './CardContent/CardContent.component'
+export * from './CardContent'
 
-import { CardActions } from './CardActions/CardActions.component'
-export * from './CardActions/CardActions.component'
-
-export default { Card, CardHeader, CardActions, CardContent }
+export * from './CardActions'

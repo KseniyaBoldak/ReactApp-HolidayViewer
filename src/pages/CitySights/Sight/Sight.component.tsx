@@ -1,11 +1,7 @@
+import Card from '../../../components/Card'
+import { ImageWithMap } from '../../../components/Image'
 import { useCallback } from 'react'
-import './sight.style.css'
-import { SearchImage } from '../../components/Image'
-import Card, {
-    CardActions,
-    CardContent,
-    CardHeader,
-} from '../../components/Card'
+import './Sight.style.css'
 
 export type SightProps = {
     id?: string
@@ -23,11 +19,11 @@ export default function Sight(props: SightProps) {
 
     return (
         <Card id={id} {...otherProps}>
-            <CardHeader>{value}</CardHeader>
-            <CardContent onClick={onClick} />
-            <CardActions>
-                <SearchImage onClick={onClick} />
-            </CardActions>
+            <Card.Header>{value}</Card.Header>
+            <Card.Content onClick={onClick} />
+            <Card.Actions>
+                <ImageWithMap onClick={onClick} type="search" />
+            </Card.Actions>
         </Card>
     )
 }

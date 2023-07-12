@@ -1,13 +1,17 @@
-import Quote from '../../components/Quote'
+import Cities from '../Cities'
 import Countries from '../Countries'
 import Holidays from '../../screens/Holidays'
-import Cities from '../Cities'
-import Verification from '../../screens/Verification'
-import Footer from '../../components/Footer/Footer.component'
 import Greeting from '../../screens/Greeting'
+import Verification from '../../screens/Verification'
+import LogInForm from '../../screens/LogInForm'
+import Footer from '../../components/Footer/Footer.component'
+import Quote from '../../components/Quote'
+import Spinner from '../../components/Spinner/Spinner.component'
+
 import { useAuthContext } from '../../context/Auth.Context'
 import { useEffect, useState } from 'react'
-import './mainPage.style.css'
+
+import './MainPage.style.css'
 
 export default function MainPage() {
     const authOptions = useAuthContext()
@@ -18,13 +22,13 @@ export default function MainPage() {
     useEffect(() => {
         const token = localStorage.getItem('token')
         if (token) {
-            return authOptions?.login
+            authOptions?.logIn
         }
     }, [authOptions?.isLogin])
 
     const logout = () => {
         localStorage.clear()
-        authOptions?.logout
+        !authOptions?.logOut
     }
 
     return (
@@ -34,7 +38,10 @@ export default function MainPage() {
                 The <span>journey</span> of a thousand miles begins with a
                 single <span>step</span>.
             </Quote>
-            {authOptions?.login && (
+            <LogInForm />
+            {authOptions?.isLogin ? <span>Hello!</span> : <Spinner />}
+
+            {/* {authOptions?.isLogin && (
                 <section className="country-holiday">
                     <Countries
                         countries={countries}
@@ -50,7 +57,7 @@ export default function MainPage() {
                 </section>
             )}
 
-            {authOptions?.login && <Verification />}
+            {authOptions?.isLogin && <Verification />} */}
 
             <Footer />
         </div>

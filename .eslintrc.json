@@ -17,5 +17,8 @@
         "sourceType": "module"
     },
     "plugins": ["react"],
-    "rules": {}
+    "rules": {
+        "semi": "error",
+        "indent": "error"
+    }
 }

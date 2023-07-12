@@ -1,4 +1,4 @@
-import './card-content.style.css'
+import './CardContent.style.css'
 
 export type CardContentProps = {
     onClick?: () => void
@@ -8,10 +8,16 @@ export type CardContentProps = {
 
 export function CardContent(props: CardContentProps) {
     const { children, className, ...otherProps } = props
+    const classNames = require('classnames')
+    const cardContentClass = classNames({
+        [`card-content ${className}`]: true,
+    })
 
     return (
-        <div className={`"card-content__"${className}`} {...otherProps}>
+        <div className={cardContentClass} {...otherProps}>
             {children}
         </div>
     )
 }
+
+export default CardContent

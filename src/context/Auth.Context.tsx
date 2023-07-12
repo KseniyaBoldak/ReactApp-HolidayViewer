@@ -7,9 +7,17 @@ import {
 } from 'react'
 
 export type AuthContextOptions = {
-    login: () => void
-    logout: () => void
+    logIn: () => void
+    logOut: () => void
     isLogin: boolean
+    setIsLogin: React.Dispatch<React.SetStateAction<boolean>>
+    loginData: { username: string; password: string }
+    setLoginData: React.Dispatch<
+        React.SetStateAction<{
+            username: string
+            password: string
+        }>
+    >
 }
 
 export type AuthContextProps = React.PropsWithChildren
@@ -18,11 +26,19 @@ const AuthContext = createContext<null | AuthContextOptions>(null)
 
 export default function AuthContextProvider(props: AuthContextProps) {
     const [isLogin, setIsLogin] = useState<boolean>(false)
-    const login = useCallback(() => setIsLogin(true), [])
-    const logout = useCallback(() => setIsLogin(false), [])
+    const logIn = useCallback(() => setIsLogin(true), [])
+    const logOut = useCallback(() => setIsLogin(false), [])
+    const [loginData, setLoginData] = useState<{
+        username: string
+        password: string
+    }>({
+        username: 'mor_2314',
+        password: '83r5^_',
+    })
+
     const options = useMemo(
-        () => ({ isLogin, login, logout }),
-        [isLogin, login, logout]
+        () => ({ logIn, logOut, isLogin, setIsLogin, loginData, setLoginData }),
+        [logIn, logOut, isLogin, setIsLogin, loginData, setLoginData]
     )
 
     return (

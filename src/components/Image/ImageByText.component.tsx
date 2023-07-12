@@ -6,9 +6,8 @@ export type ImageByTextProps = {
 }
 
 export default function ImageByText(props: ImageByTextProps) {
-    const type = Object.values(ICON_MAP).find((value) =>
-        props.text.includes(value)
-    )
+    const { text } = props
+    const type = Object.values(ICON_MAP).find((value) => text.includes(value))
 
     if (!type) {
         return null

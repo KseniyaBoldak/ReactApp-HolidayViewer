@@ -1,5 +1,5 @@
 import usePagination, { PaginationOptions } from './usePagination'
-import './pagination.style.css'
+import './Pagination.style.css'
 
 export type PaginationProps = PaginationOptions
 

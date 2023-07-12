@@ -1,6 +1,6 @@
 import AdvicesLogIn from '../AdvicesLogIn'
 import LogInForm from '../LogInForm'
-import './verification.style.css'
+import './Verification.style.css'
 
 export default function Verification() {
     return (

@@ -1,12 +1,18 @@
-import { createContext, useContext, useEffect, useMemo, useState } from 'react'
+import React, {
+    createContext,
+    useContext,
+    useEffect,
+    useMemo,
+    useState,
+} from 'react'
+
 import CountriesApi from '../api/Countries.api'
-import { CitiesProps } from '../pages/Cities'
 
 export type CountryContextOptions = {
-    login: () => void
-    logout: () => void
-    isLogin: React.ReactNode
-    countryName?: CitiesProps
+    countries: null | any[]
+    currentCountry: React.ReactNode
+    currentCountryCities: null | any[]
+    setCurrentCountry: (name: string) => void
 }
 
 export type CountryContextProps = React.PropsWithChildren
@@ -14,17 +20,11 @@ export type CountryContextProps = React.PropsWithChildren
 const CountryContext = createContext<null | CountryContextOptions>(null)
 
 export default function CountryContextProvider(props: CountryContextProps) {
-    const { countryName } = props
-    const [currentCountry, setCurrentCountry] = useState<boolean>(false)
+    const [currentCountry, setCurrentCountry] = useState<string>('')
     const [countries, setCountries] = useState<null | any[]>(null)
     const [currentCountryCities, setCurrentCountryCities] = useState<
         null | any[]
     >(null)
-    const options = useMemo(() => currentCountry, [currentCountry])
-
-    if (!countryName || !currentCountryCities || !countries) {
-        return null
-    }
 
     // initialize all countries
     useEffect(() => {
@@ -38,13 +38,26 @@ export default function CountryContextProvider(props: CountryContextProps) {
     // select current country
     useEffect(() => {
         setCurrentCountryCities(
-            countries.find((country: any) => countryName == country.country)
+            countries?.find((country: any) => currentCountry == country.country)
                 ?.cities ?? null
         )
-    }, [countryName, countries])
+    }, [currentCountry, countries])
 
+    const val = useMemo(
+        () => ({
+            countries,
+            currentCountry,
+            currentCountryCities,
+            setCurrentCountry,
+        }),
+        [countries, currentCountry, currentCountryCities]
+    )
+
+    if (!currentCountry) {
+        return <>{props.children}</>
+    }
     return (
-        <CountryContext.Provider value={options}>
+        <CountryContext.Provider value={val}>
             {props.children}
         </CountryContext.Provider>
     )

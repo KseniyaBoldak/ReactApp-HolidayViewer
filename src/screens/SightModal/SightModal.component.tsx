@@ -1,5 +1,6 @@
-import Modal, { ModalProps } from '.'
-import IconByText from '../../components/Image/ImageByText.component'
+import Modal, { ModalProps } from '../../components/Modal'
+import ImageByText from '../../components/Image/ImageByText.component'
+import './SightModal.style.css'
 
 export default function SightModal(props: ModalProps) {
     const { visible = false, onClose, info } = props
@@ -16,7 +17,7 @@ export default function SightModal(props: ModalProps) {
     }
 
     return (
-        <Modal className="__sight" onClick={onClose}>
+        <Modal className="sight" onClick={onClose}>
             <Modal.Header
                 className="modal__header"
                 title={sightInfo.text}
@@ -34,7 +35,7 @@ export default function SightModal(props: ModalProps) {
                     {sightInfo.kinds}
                 </div>
                 <div className="modal__image">
-                    <IconByText text={info.kind} />
+                    <ImageByText text={info.kind} />
                     <a href={info.map}>View on map</a>
                 </div>
             </Modal.Body>

@@ -1,47 +1,45 @@
-import React, { useCallback, useState } from 'react'
-import LogInApi from '../../api/LogIn.api'
-import './login.style.css'
 import Form from '../../components/Form'
 import Button from '../../components/Button'
+import LogInApi from '../../api/LogIn.api'
+import { useCallback } from 'react'
+import { useAuthContext } from '../../context/Auth.Context'
+import './LogInForm.style.css'
 
-export type LogInFormProps = {}
+export default function LogInForm() {
+    const authOptions = useAuthContext()
 
-export default function LogInForm(props: LogInFormProps) {
-    const [loginData, setLoginData] = useState<{
-        username: string
-        password: string
-    }>({
-        username: 'mor_2314',
-        password: '83r5^_',
-    })
+    const onChange = useCallback(
+        (event: React.ChangeEvent<HTMLInputElement>) => {
+            const field = event.target.id
+            authOptions?.setLoginData(authOptions.loginData)
+            console.log(authOptions?.loginData)
+        },
+        []
+    )
 
     const labels = {
         name: 'Username',
         password: 'Password',
     }
 
-    const onChange = useCallback(
-        (event: React.ChangeEvent<HTMLInputElement>) => {
-            const field = event.target.id
-            setLoginData({ ...loginData, [field]: event.target.value }) // <= вместо AuthContext.login(login, pass)
-        },
-        []
-    )
-
     return (
         <Form onSubmit={LogInApi.confirmUser} className="__login">
             <p className="login-form__title">Create an account</p>
             <Form.Field
-                value={loginData.username}
+                placeholder={labels.name}
+                value={authOptions?.loginData.username}
                 label={labels.name}
                 onChange={onChange}
+                className={'username'}
             />
             <Form.Field
-                value={loginData.password}
+                placeholder={labels.password}
+                value={authOptions?.loginData.password}
                 label={labels.password}
                 onChange={onChange}
+                className={'password'}
             />
-            <Button type="submit" className="__login-form" text="Sign Up" />
+            <Button type="submit" className="login-form" text="Sign Up" />
         </Form>
     )
 }

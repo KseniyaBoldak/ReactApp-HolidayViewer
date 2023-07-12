@@ -1,17 +1,19 @@
-import { ReactComponent as HistoryIcon } from './history.svg'
-import { ReactComponent as EntertainmentIcon } from './entertainment.svg'
-import { ReactComponent as FountainIcon } from './fountain.svg'
-import { ReactComponent as MapIcon } from './map.svg'
-import { ReactComponent as MountainIcon } from './mountain.svg'
-import { ReactComponent as MuseumIcon } from './museum.svg'
-import { ReactComponent as ReligionIcon } from './religion.svg'
-import { ReactComponent as TheatreIcon } from './theatre.svg'
-import { ReactComponent as CloseIcon } from './close.svg'
-import { ReactComponent as ArrowIcon } from '../../../public/arrow.svg'
-import { ReactComponent as CityIcon } from '../../../public/city.svg'
+import HistoryIcon from './history.svg'
+import EntertainmentIcon from './entertainment.svg'
+import FountainIcon from './fountain.svg'
+import MapIcon from './map.svg'
+import MountainIcon from './mountain.svg'
+import MuseumIcon from './museum.svg'
+import ReligionIcon from './religion.svg'
+import TheatreIcon from './theatre.svg'
+import CloseIcon from './close.svg'
+import ArrowIcon from './arrow.svg'
+import CityIcon from './city.svg'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import FacebookIcon from '@mui/icons-material/Facebook'
 import SearchIcon from '@mui/icons-material/Search'
+import LoginBackground from './loginbc.svg'
+import MainBackground from './mainbc.svg'
 
 export const ICON_MAP = {
     history: HistoryIcon,
@@ -23,11 +25,13 @@ export const ICON_MAP = {
     religion: ReligionIcon,
     search: SearchIcon,
     theatre: TheatreIcon,
-    github: GitHubIcon,
-    facebook: FacebookIcon,
     close: CloseIcon,
     arrow: ArrowIcon,
     city: CityIcon,
+    login: LoginBackground,
+    mainbackground: MainBackground,
+    github: GitHubIcon,
+    facebook: FacebookIcon,
 }
 
 export default ICON_MAP

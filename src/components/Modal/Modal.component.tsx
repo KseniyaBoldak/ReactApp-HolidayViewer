@@ -1,19 +1,23 @@
-import { CardContent, CardHeader } from '../../components/Card'
-import './modal.style.css'
+import { CardContent, CardHeader } from '../Card'
+import './Modal.style.css'
 
 export type ModalProps = {
     visible?: boolean
-    onClose?: () => void
     info?: any
-    onClick?: () => void
-    children?: any
+    children?: React.ReactNode
     className?: string
+    onClose?: () => void
+    onClick?: () => void
 }
 
 export default function Modal(props: ModalProps) {
     const { children, className, ...otherProps } = props
+
+    const classNames = require('classnames')
+    const modalClass = classNames({ [`modal ${className}`]: true })
+
     return (
-        <div className={`"modal"${className}`} {...otherProps}>
+        <div className={modalClass} {...otherProps}>
             <div className="modal__dialog" onClick={(e) => e.stopPropagation()}>
                 {children}
             </div>

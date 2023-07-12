@@ -1,6 +1,6 @@
 import MainPage from './pages/MainPage/MainPage.component'
-import AuthContext from './context/Auth.Context'
 import CountryContext from './context/Country.Context'
+import AuthContext from './context/Auth.Context'
 
 function App() {
     return (

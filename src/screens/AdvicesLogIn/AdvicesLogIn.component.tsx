@@ -1,18 +1,17 @@
 import StepperAction from '../Stepper/Stepper.component'
-import key from 'weak-key'
-import './advices.style.css'
+import Advice from './Advice/Advice.component'
 
-const text = [
+import './AdvicesLogIn.style.css'
+
+const ADVICES = [
     { text: 'Haven`t decided where to spend holidays?' },
     { text: 'Plan Your Vacation In Simple Steps:' },
 ]
 export default function AdvicesLogIn() {
     return (
         <aside className="advices">
-            {text.map((text) => (
-                <p className="advices__title" key={key(text)}>
-                    {text.text}
-                </p>
+            {ADVICES.map((text) => (
+                <Advice text={text} />
             ))}
             <StepperAction />
         </aside>

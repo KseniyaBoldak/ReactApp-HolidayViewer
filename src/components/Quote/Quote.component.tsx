@@ -1,5 +1,5 @@
-import { ArrowIcon } from '../Image'
-import './quote.style.css'
+import { ImageWithMap } from '../Image'
+import './Quote.style.css'
 
 export type QuoteProps = React.PropsWithChildren & {
     text?: React.ReactNode
@@ -11,7 +11,7 @@ export default function Quote(props: QuoteProps) {
 
     return (
         <article className="quote" {...otherProps}>
-            <ArrowIcon className="quote__image" />
+            <ImageWithMap type="arrow" className="quote__image" />
             <q className="quote__text">
                 {text}
                 {children}

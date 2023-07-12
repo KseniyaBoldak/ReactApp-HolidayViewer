@@ -1,0 +1,8 @@
+.holidays {
+    display: flex;
+    justify-content: space-around;
+}
+.holidays__date:first-child,
+.holidays__name:last-child {
+    width: 50%;
+}

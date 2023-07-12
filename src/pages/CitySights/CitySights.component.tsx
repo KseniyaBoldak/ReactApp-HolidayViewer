@@ -1,8 +1,10 @@
-import Modal from '../../screens/Modal'
-import Sight from '../../screens/Sight'
+import Modal from '../../components/Modal'
+import Sight from './Sight'
+
 import { useEffect, useState } from 'react'
 import SightApi from '../../api/Sight.api'
-import './sights.style.css'
+
+import './CitySights.style.css'
 
 export type CitySightsProps = {
     geo?: any

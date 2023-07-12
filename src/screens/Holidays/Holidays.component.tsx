@@ -1,7 +1,8 @@
+import Holiday from './Holiday/Holiday.component'
+import Spinner from '../../components/Spinner/Spinner.component'
 import { useEffect, useState } from 'react'
-import key from 'weak-key'
 import HolidaysApi from '../../api/Holidays.api'
-import './holidays.style.css'
+import './Holidays.style.css'
 
 export type HolidaysProps = {
     countryCode: string
@@ -18,10 +19,6 @@ export default function Holidays(props: HolidaysProps) {
             .catch((e) => console.log(e))
     }, [countryCode])
 
-    if (!holidays) {
-        return null
-    }
-
     return (
         <article className="holidays" {...otherProps}>
             <div className="holidays__country">
@@ -31,18 +28,11 @@ export default function Holidays(props: HolidaysProps) {
                 <div className="holidays__title__date">Date</div>
                 <div className="holidays__title__name">Holiday</div>
             </div>
-            {holidays.map((field: any) => {
-                return (
-                    <div className="holidays__content" key={key(field)}>
-                        <div className="holidays__content__date">
-                            {field.date}
-                        </div>
-                        <div className="holidays__content__name">
-                            {field.name}
-                        </div>
-                    </div>
-                )
-            })}
+            {holidays &&
+                holidays.map((field: any) => {
+                    return <Holiday field={field} />
+                })}
+            {!holidays && <Spinner />}
         </article>
     )
 }

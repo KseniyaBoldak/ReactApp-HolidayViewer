@@ -1,5 +1,5 @@
-import key from 'weak-key'
 import StepperAction, { StepperActionProps } from './StepperAction.component'
+import key from 'weak-key'
 
 export type StepperProps = {
     steps?: StepperActionProps[]

@@ -1,8 +1,7 @@
-import { CloseIcon, ImageTypes } from '../../Image'
-import './card-header.style.css'
+import { ImageWithMap } from '../../Image'
+import './CardHeader.style.css'
 
 export type CardHeaderProps = {
-    icon?: ImageTypes
     title?: React.ReactNode
     children?: React.ReactNode
     className?: React.ReactNode
@@ -10,14 +9,17 @@ export type CardHeaderProps = {
 }
 
 export function CardHeader(props: CardHeaderProps) {
-    const { icon, title, children, onCloseClick, className, ...otherProps } =
-        props
+    const { title, children, onCloseClick, className, ...otherProps } = props
+    const classNames = require('classnames')
+    const cardHeaderClass = classNames({ [`card-header ${className}`]: true })
 
     return (
-        <div className={`"card-header__"${className}`} {...otherProps}>
+        <div className={cardHeaderClass} {...otherProps}>
             <p className="card-header__title">{title}</p>
-            <CloseIcon className="card-header__icon" />
+            <ImageWithMap type="close" />
             {children}
         </div>
     )
 }
+
+export default CardHeader
